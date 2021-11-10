@@ -1,7 +1,9 @@
 <LibLoader src="https://www.gstatic.com/charts/loader.js" on:loaded={onLoaded} />
+<svelte:window bind:innerWidth={x} />
 <div id="chart_div" />
 
 <script>
+  let x;
   import LibLoader from "./LibLoader.svelte";
   const onLoaded = () => {
     // Load the Visualization API and the corechart package.
@@ -29,8 +31,8 @@
       // Set chart options
       var options = {
         title: "How Much Pizza I Ate Last Night",
-        width: 400,
-        height: 300
+        width: x * 0.9,
+        height: x * 0.5
       };
 
       // Instantiate and draw our chart, passing in some options.
